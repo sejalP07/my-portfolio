@@ -33,16 +33,16 @@ export default function CinematicLayer() {
       // Particles
       const count = 180;
       const positions = new Float32Array(count * 3);
-      const colors = new Float32Array(count * 3);
-      const sizes = new Float32Array(count);
+      const colors    = new Float32Array(count * 3);
+      const sizes     = new Float32Array(count);
 
       const warm = [
-        new THREE.Color(0xff8c42),
-        new THREE.Color(0xffb347),
-        new THREE.Color(0xffd700),
-        new THREE.Color(0xffeaa0),
-        new THREE.Color(0xffffff),
-        new THREE.Color(0x6ec6ff),
+        new THREE.Color(0xd4af37), // Soft gold
+        new THREE.Color(0xf4ebd0), // Ivory
+        new THREE.Color(0xfbfbfa), // Warm white
+        new THREE.Color(0xc5c0ba), // Soft beige-gray
+        new THREE.Color(0xffeaa0), // Pale yellow-gold
+        new THREE.Color(0xffffff), // Pure white
       ];
 
       for (let i = 0; i < count; i++) {
@@ -56,45 +56,66 @@ export default function CinematicLayer() {
         colors[i3 + 1] = c.g;
         colors[i3 + 2] = c.b;
 
-        sizes[i] = Math.random() * 28 + 8;
+        // Normalised 0–1 size used by the shader uniform multiplier
+        sizes[i] = Math.random() * 0.22 + 0.06;
       }
 
       const geo = new THREE.BufferGeometry();
       geo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-      geo.setAttribute('color', new THREE.BufferAttribute(colors, 3));
-      geo.setAttribute('size', new THREE.BufferAttribute(sizes, 1));
+      geo.setAttribute('aColor',   new THREE.BufferAttribute(colors,    3));
+      geo.setAttribute('aSize',    new THREE.BufferAttribute(sizes,     1));
 
       // Soft circular sprite texture
       const spriteCanvas = document.createElement('canvas');
-      spriteCanvas.width = 64;
+      spriteCanvas.width  = 64;
       spriteCanvas.height = 64;
-      const ctx = spriteCanvas.getContext('2d');
+      const ctx  = spriteCanvas.getContext('2d');
       const grad = ctx.createRadialGradient(32, 32, 0, 32, 32, 32);
-      grad.addColorStop(0, 'rgba(255,255,255,1)');
+      grad.addColorStop(0,    'rgba(255,255,255,1)');
       grad.addColorStop(0.35, 'rgba(255,255,255,0.6)');
-      grad.addColorStop(0.7, 'rgba(255,255,255,0.12)');
-      grad.addColorStop(1, 'rgba(255,255,255,0)');
+      grad.addColorStop(0.7,  'rgba(255,255,255,0.12)');
+      grad.addColorStop(1,    'rgba(255,255,255,0)');
       ctx.fillStyle = grad;
       ctx.fillRect(0, 0, 64, 64);
       const spriteTex = new THREE.CanvasTexture(spriteCanvas);
 
-      const mat = new THREE.PointsMaterial({
-        size: 0.18,
-        map: spriteTex,
-        vertexColors: true,
-        blending: THREE.AdditiveBlending,
-        depthWrite: false,
-        transparent: true,
-        opacity: 0.75,
-        sizeAttenuation: true,
-      });
+      // ShaderMaterial with explicit GLSL ES 1.0 — works on both WebGL1 and WebGL2.
+      // 'color' is a reserved Three.js built-in attribute name so we use 'aColor'.
+      // Array-join avoids template-literal transpilation issues in some bundler configs.
+      const vert = [
+        'uniform   float uBaseSize;',
+        'attribute float aSize;',
+        'attribute vec3  aColor;',
+        'varying   vec3  vColor;',
+        'void main() {',
+        '  vColor = aColor;',
+        '  vec4 mvPos    = modelViewMatrix * vec4(position, 1.0);',
+        '  gl_PointSize  = aSize * uBaseSize * (1.0 / -mvPos.z);',
+        '  gl_Position   = projectionMatrix * mvPos;',
+        '}',
+      ].join('\n');
 
-      // Override size per point using custom shader approach via material.onBeforeCompile
-      mat.onBeforeCompile = (shader) => {
-        shader.vertexShader = shader.vertexShader
-          .replace('void main() {', 'attribute float size;\nvoid main() {')
-          .replace('gl_PointSize = ', 'gl_PointSize = size * ');
-      };
+      const frag = [
+        'uniform sampler2D uTexture;',
+        'varying vec3 vColor;',
+        'void main() {',
+        '  vec4 tex     = texture2D(uTexture, gl_PointCoord);',
+        '  gl_FragColor = vec4(vColor, tex.a * 0.75);',
+        '}',
+      ].join('\n');
+
+      const mat = new THREE.ShaderMaterial({
+        uniforms: {
+          uTexture:  { value: spriteTex },
+          uBaseSize: { value: 220.0 },
+        },
+        vertexShader:   vert,
+        fragmentShader: frag,
+        blending:       THREE.AdditiveBlending,
+        depthWrite:     false,
+        transparent:    true,
+        glslVersion:    THREE.GLSL1,
+      });
 
       particleSystem = new THREE.Points(geo, mat);
       scene.add(particleSystem);
