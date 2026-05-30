@@ -34,7 +34,10 @@
   inset: 0;
   width: 100%;
   height: 100%;
+
   object-fit: cover;
+  object-position: center 25%;
+
   z-index: 1;
   opacity: 0;
   transition: opacity 1.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -109,16 +112,22 @@
   position: absolute;
   inset: 0;
   z-index: 10;
+
   display: flex;
-  align-items: flex-end;
+  align-items: center;
+  justify-content: flex-start;
+
+  padding-left: 8%;
   pointer-events: none;
 }
 
 .inner {
   width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 clamp(1.5rem, 5vw, 5rem) clamp(5rem, 10vh, 8rem);
+  max-width: 650px;
+
+  margin: 0;
+  padding: 0;
+
   pointer-events: all;
 }
 
@@ -155,21 +164,23 @@
 /* ---------- Name ---------- */
 .name {
   display: flex;
-  flex-direction: column;
-  gap: clamp(0.1rem, 0.5vh, 0.25rem);
-  margin: 0 0 clamp(1rem, 3vh, 1.75rem);
-  line-height: 0.88;
+  flex-direction: row;
+  align-items: center;
+  gap: 18px;
+
+  margin: 0 0 1.5rem;
+  line-height: 1;
 }
 
 .firstName,
 .lastName {
   display: block;
   font-family: 'Bebas Neue', 'Impact', sans-serif;
-  font-size: clamp(4.5rem, 12vw, 11rem);
+  font-size: clamp(4rem, 8vw, 7rem);
   font-weight: 400;
   letter-spacing: 0.04em;
   color: #ffffff;
-  line-height: 0.92;
+  line-height: 1;
 }
 
 .firstName {
@@ -188,16 +199,22 @@
 /* ---------- Role ---------- */
 .role {
   font-family: 'Cormorant Garamond', 'Georgia', serif;
-  font-size: clamp(0.95rem, 1.6vw, 1.2rem);
+  font-size: clamp(1rem, 1.4vw, 1.3rem);
   font-weight: 300;
   font-style: italic;
-  color: rgba(255, 255, 255, 0.55);
-  line-height: 1.65;
-  margin: 0 0 clamp(0.75rem, 2vh, 1.25rem);
-  max-width: 480px;
-  letter-spacing: 0.015em;
-}
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.7;
+  margin: 0 0 1.5rem;
 
+  max-width: 550px;
+}
+.techFloating {
+  position: absolute;
+  right: 5%;
+  top: 15%;
+  width: 40%;
+  pointer-events: none;
+}
 .br { display: block; }
 
 /* ---------- Skill Badges ---------- */
@@ -420,13 +437,21 @@
   }
 }
 
-@media (max-width: 480px) {
-  .inner {
-    padding: 0 1.25rem clamp(4.5rem, 12vh, 7rem);
+@media (max-width: 768px) {
+  .content {
+    justify-content: center;
+    padding: 0 1.5rem;
   }
 
-  .firstName,
-  .lastName {
-    font-size: clamp(3.5rem, 16vw, 5.5rem);
+  .inner {
+    max-width: 100%;
+  }
+
+  .name {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
   }
 }
+
+  

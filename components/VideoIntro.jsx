@@ -104,14 +104,6 @@ export default function VideoIntro({ videoSrc = '/hero-video.mp4' }) {
       {/* Hero content */}
       <div ref={contentRef} className={styles.content}>
         
-        {/* Floating tech background labels */}
-        <div className={styles.techFloating}>
-          <span className={`${styles.techTag} ${styles.float1}`}>Artificial Intelligence</span>
-          <span className={`${styles.techTag} ${styles.float2}`}>Neural Networks</span>
-          <span className={`${styles.techTag} ${styles.float3}`}>Next.js &amp; React</span>
-          <span className={`${styles.techTag} ${styles.float4}`}>Cloud &amp; DBMS</span>
-        </div>
-
         <div className={styles.innerGlassWrapper}>
           <div className={styles.inner}>
 
