@@ -1,0 +1,388 @@
+/* ================================================================
+   VideoIntro.module.css — Cinematic Portfolio Hero
+   ================================================================ */
+
+/* ---------- Hero Shell ---------- */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100svh;
+  min-height: 600px;
+  overflow: hidden;
+  background: #050505;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ---------- Ambient BG video ---------- */
+.bgVideo {
+  position: absolute;
+  inset: -8%;
+  width: 116%;
+  height: 116%;
+  object-fit: cover;
+  filter: blur(48px) brightness(0.35) saturate(1.4);
+  transform: scale(1.05);
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* ---------- Main Foreground Video ---------- */
+.mainVideo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 1.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  pointer-events: none;
+}
+
+.videoLoaded {
+  opacity: 1;
+}
+
+/* ---------- Cinematic Overlays ---------- */
+.gradientBottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 65%;
+  background: linear-gradient(
+    to top,
+    rgba(3, 3, 6, 0.97) 0%,
+    rgba(3, 3, 6, 0.75) 30%,
+    rgba(3, 3, 6, 0.35) 60%,
+    transparent 100%
+  );
+  z-index: 2;
+  pointer-events: none;
+}
+
+.gradientTop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 35%;
+  background: linear-gradient(
+    to bottom,
+    rgba(3, 3, 6, 0.72) 0%,
+    rgba(3, 3, 6, 0.2) 60%,
+    transparent 100%
+  );
+  z-index: 2;
+  pointer-events: none;
+}
+
+.gradientLeft {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    rgba(3, 3, 6, 0.82) 0%,
+    rgba(3, 3, 6, 0.45) 35%,
+    transparent 65%
+  );
+  z-index: 2;
+  pointer-events: none;
+}
+
+.gradientVignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at 50% 50%,
+    transparent 40%,
+    rgba(3, 3, 6, 0.55) 100%
+  );
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* ---------- Content ---------- */
+.content {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  display: flex;
+  align-items: flex-end;
+  pointer-events: none;
+}
+
+.inner {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 clamp(1.5rem, 5vw, 5rem) clamp(5rem, 10vh, 8rem);
+  pointer-events: all;
+}
+
+/* ---------- Tagline ---------- */
+.tagline {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'DM Mono', 'Courier New', monospace;
+  font-size: clamp(0.62rem, 1vw, 0.75rem);
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255, 170, 80, 0.85);
+  margin: 0 0 clamp(0.75rem, 2vh, 1.25rem);
+}
+
+.taglineDot {
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #ff9a40;
+  box-shadow: 0 0 10px 3px rgba(255, 154, 64, 0.6);
+  flex-shrink: 0;
+  animation: dotPulse 2.4s ease-in-out infinite;
+}
+
+@keyframes dotPulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.6); opacity: 0.6; }
+}
+
+/* ---------- Name ---------- */
+.name {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.1rem, 0.5vh, 0.25rem);
+  margin: 0 0 clamp(1rem, 3vh, 1.75rem);
+  line-height: 0.88;
+}
+
+.firstName,
+.lastName {
+  display: block;
+  font-family: 'Bebas Neue', 'Impact', sans-serif;
+  font-size: clamp(4.5rem, 12vw, 11rem);
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: #ffffff;
+  line-height: 0.92;
+}
+
+.firstName {
+  text-shadow:
+    0 0 120px rgba(255, 140, 60, 0.25),
+    0 2px 40px rgba(0, 0, 0, 0.8);
+}
+
+.lastName {
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.55);
+  text-shadow: none;
+  letter-spacing: 0.06em;
+}
+
+/* ---------- Role ---------- */
+.role {
+  font-family: 'Cormorant Garamond', 'Georgia', serif;
+  font-size: clamp(0.95rem, 1.6vw, 1.2rem);
+  font-weight: 300;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.55);
+  line-height: 1.65;
+  margin: 0 0 clamp(1.5rem, 4vh, 2.5rem);
+  max-width: 480px;
+  letter-spacing: 0.015em;
+}
+
+.br { display: block; }
+
+/* ---------- Controls Row ---------- */
+.controlsRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* ---------- Glass Button ---------- */
+.glassBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 16px 8px 13px;
+  border-radius: 100px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(20px) saturate(1.6);
+  -webkit-backdrop-filter: blur(20px) saturate(1.6);
+  color: rgba(255, 255, 255, 0.8);
+  font-family: 'DM Mono', monospace;
+  font-size: 0.68rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease,
+    transform 0.2s ease,
+    box-shadow 0.3s ease;
+  white-space: nowrap;
+}
+
+.glassBtn:hover {
+  background: rgba(255, 255, 255, 0.13);
+  border-color: rgba(255, 160, 60, 0.45);
+  color: #fff;
+  box-shadow: 0 0 24px rgba(255, 140, 40, 0.18);
+  transform: translateY(-1px);
+}
+
+.glassBtn:active {
+  transform: scale(0.97) translateY(0);
+}
+
+/* ---------- Sound Hint ---------- */
+.soundHint {
+  position: absolute;
+  bottom: clamp(4.5rem, 10vh, 6.5rem);
+  right: clamp(1.5rem, 4vw, 3rem);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 14px;
+  border-radius: 100px;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  font-family: 'DM Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+  z-index: 10;
+  opacity: 0;
+  transform: translateY(8px);
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+  pointer-events: none;
+}
+
+.soundHintVisible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.soundPulse {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255, 160, 60, 0.9);
+  animation: soundPulseAnim 1.5s ease-in-out infinite;
+}
+
+@keyframes soundPulseAnim {
+  0%, 100% { transform: scale(1); opacity: 0.9; }
+  50% { transform: scale(1.8); opacity: 0.4; }
+}
+
+/* ---------- Scroll Indicator ---------- */
+.scrollIndicator {
+  position: absolute;
+  bottom: clamp(1.5rem, 4vh, 2.5rem);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 8px 12px;
+  transition: opacity 0.3s ease;
+}
+
+.scrollIndicator:hover {
+  opacity: 0.7;
+}
+
+.scrollLabel {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.scrollLine {
+  position: relative;
+  width: 1px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.15);
+  overflow: hidden;
+  border-radius: 1px;
+}
+
+.scrollPulse {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 60%;
+  background: linear-gradient(to bottom, transparent, rgba(255, 160, 60, 0.9), transparent);
+  animation: scrollPulseAnim 2s ease-in-out infinite;
+}
+
+@keyframes scrollPulseAnim {
+  0% { top: -100%; }
+  100% { top: 200%; }
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+  .bgVideo {
+    filter: blur(30px) brightness(0.3) saturate(1.4);
+  }
+
+  .gradientLeft {
+    background: linear-gradient(
+      to top,
+      rgba(3, 3, 6, 0.9) 0%,
+      rgba(3, 3, 6, 0.3) 60%,
+      transparent 100%
+    );
+  }
+
+  .role .br {
+    display: none;
+  }
+
+  .lastName {
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.45);
+  }
+
+  .soundHint {
+    bottom: 5rem;
+    right: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .inner {
+    padding: 0 1.25rem clamp(4.5rem, 12vh, 7rem);
+  }
+
+  .firstName,
+  .lastName {
+    font-size: clamp(3.5rem, 16vw, 5.5rem);
+  }
+}
