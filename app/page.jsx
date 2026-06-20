@@ -257,7 +257,7 @@ export default function HomePage() {
                 {[
                   { label: 'CGPA', value: '8.58' },
                   { label: 'Grad Year', value: '2026' },
-                  { label: 'Projects', value: '3+' },
+                  { label: 'Projects', value: '5+' },
                 ].map(s => (
                   <div key={s.label} style={{
                     textAlign: 'center',
@@ -325,20 +325,22 @@ export default function HomePage() {
                     }}>{t}</span>
                   ))}
                 </div>
-                <a
-  href={p.github}
-  target="_blank"
-  rel="noopener noreferrer"
-  style={{
-    display: 'inline-block',
-    marginTop: '1rem',
-    color: '#ff9a40',
-    textDecoration: 'none',
-    fontSize: '0.8rem'
-  }}
->
-  View on GitHub →
-</a>
+                {p.github && (
+  <a
+    href={p.github}
+    target="_blank"
+    rel="noopener noreferrer"
+    style={{
+      display: 'inline-block',
+      marginTop: '1rem',
+      color: '#ff9a40',
+      textDecoration: 'none',
+      fontSize: '0.8rem'
+    }}
+  >
+    View on GitHub →
+  </a>
+)}
               </GlassCard>
             ))}
           </div>
