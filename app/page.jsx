@@ -597,7 +597,7 @@ export default function HomePage() {
 >
   {/* LinkedIn */}
   <a
-    href="YOUR_LINKEDIN_URL"
+    href="https://www.linkedin.com/in/sejalp007"
     target="_blank"
     rel="noopener noreferrer"
     style={{
