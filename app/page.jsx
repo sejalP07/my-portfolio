@@ -572,6 +572,37 @@ export default function HomePage() {
                 )}
               </button>
             </div>
+            <div style={{
+  marginTop: '2rem',
+  display: 'flex',
+  justifyContent: 'center',
+  gap: '1rem',
+  flexWrap: 'wrap'
+}}>
+  <a
+    href="YOUR_LINKEDIN_URL"
+    target="_blank"
+    rel="noopener noreferrer"
+    style={{
+      color: '#ff9a40',
+      textDecoration: 'none'
+    }}
+  >
+    LinkedIn
+  </a>
+
+  <a
+    href="https://github.com/sejalP07"
+    target="_blank"
+    rel="noopener noreferrer"
+    style={{
+      color: '#ff9a40',
+      textDecoration: 'none'
+    }}
+  >
+    GitHub
+  </a>
+</div>
 
           </div>
 
