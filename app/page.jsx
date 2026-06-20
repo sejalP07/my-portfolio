@@ -154,6 +154,7 @@ const projects = [
     tag: 'Simulation · Operations Research',
     desc: 'Developed a capacity planning and resource allocation simulator to analyze workload distribution, utilization rates, bottlenecks, and operational efficiency. Implemented scenario-based simulations and performance metrics visualization for decision-making.',
     stack: ['Python', 'Simulation', 'Data Analysis', 'Optimization'],
+    github: 'https://github.com/sejalP07/Capacity-Management-Simulator',
   },
 
   {
@@ -161,6 +162,7 @@ const projects = [
     tag: 'Full Stack · Web Application',
     desc: 'Developed a QR-based attendance tracking and college management platform with role-based authentication, attendance reporting, and automated record management.',
     stack: ['React.js', 'Flask', 'MySQL', 'Python'],
+    github: 'https://github.com/sejalP07/Smart-QRCode-Attendance-System',
   }
 ];
 
