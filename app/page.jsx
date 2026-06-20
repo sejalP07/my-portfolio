@@ -421,6 +421,12 @@ export default function HomePage() {
                 detail: 'Competitive programming achievement',
               },
               {
+                icon: '🤖',
+                title: 'Generative AI',
+                sub: 'Google Cloud',
+                detail: 'Certified',
+              },
+              {
                 icon: '📜',
                 title: 'Python Basics Certification',
                 sub: 'HackerRank',
