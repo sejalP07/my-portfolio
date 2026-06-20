@@ -130,7 +130,7 @@ const projects = [
     tag: 'Software Engineering · AI',
     desc: 'Built a multi-model code evaluation platform supporting GPT, Gemini, and Claude. Features automated benchmarking, code execution, complexity analysis, and performance comparison.',
     stack: ['FastAPI', 'PostgreSQL', 'Next.js', 'Docker', 'Python'],
-    github: 'https://github.com/sejalP07/ai-code-arena'
+    github: 'https://github.com/sejalP07/ai-code-arena',
   },
 
   {
@@ -138,7 +138,7 @@ const projects = [
     tag: 'AI · RAG System',
     desc: 'Developed an intelligent research assistant with document ingestion, semantic search, citation generation, and AI-powered question answering using Retrieval-Augmented Generation.',
     stack: ['FastAPI', 'PostgreSQL', 'Docker', 'Next.js', 'Python'],
-    github: 'https://github.com/sejalP07/research-copilot'
+    github: 'https://github.com/sejalP07/research-copilot',
   },
 
   {
@@ -146,6 +146,7 @@ const projects = [
     tag: 'Backend · API Development',
     desc: 'Designed and developed scalable REST APIs for user authentication, product catalog management, shopping cart operations, and order processing with secure JWT authentication.',
     stack: ['FastAPI', 'PostgreSQL', 'Docker', 'JWT', 'Python'],
+    github: '#',
   },
 
   {
