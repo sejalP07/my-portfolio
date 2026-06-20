@@ -126,23 +126,39 @@ function GlassCard({ children, style, accentLine = false, hoverGlow = true }) {
 /* ─── Projects data ─────────────────────────────────────────── */
 const projects = [
   {
-    title: 'RecoMind AI',
-    tag: 'AI · Full-Stack',
-    desc: 'Full-stack recommendation system using React JS, Flask, Node.js, and MongoDB. Implements collaborative and content-based filtering using Python and Scikit-learn with real-time REST APIs.',
-    stack: ['React JS', 'Flask', 'Node.js', 'MongoDB', 'Scikit-learn', 'Python'],
+    title: 'AI Code Arena',
+    tag: 'Software Engineering · AI',
+    desc: 'Built a multi-model code evaluation platform supporting GPT, Gemini, and Claude. Features automated benchmarking, code execution, complexity analysis, and performance comparison.',
+    stack: ['FastAPI', 'PostgreSQL', 'Next.js', 'Docker', 'Python'],
   },
+
   {
-    title: 'Breast Cancer Relapse Prediction',
-    tag: 'Deep Learning · Healthcare',
-    desc: 'Multi-fusion deep learning model combining MobileNet and MLP architectures for image and structured data processing. Evaluated with accuracy, precision, recall, and F1-score metrics.',
-    stack: ['TensorFlow', 'Python', 'MobileNet', 'MLP', 'Scikit-learn'],
+    title: 'Research Copilot',
+    tag: 'AI · RAG System',
+    desc: 'Developed an intelligent research assistant with document ingestion, semantic search, citation generation, and AI-powered question answering using Retrieval-Augmented Generation.',
+    stack: ['FastAPI', 'PostgreSQL', 'Docker', 'Next.js', 'Python'],
   },
+
   {
-    title: 'Spotify Clone',
-    tag: 'Frontend · UI',
-    desc: 'Responsive music streaming web application with interactive UI components including playlist navigation, media controls, and search. Reusable component architecture optimised for desktop and mobile.',
-    stack: ['React JS', 'HTML', 'CSS', 'JavaScript'],
+    title: 'E-Commerce Backend Platform',
+    tag: 'Backend · API Development',
+    desc: 'Designed and developed scalable REST APIs for user authentication, product catalog management, shopping cart operations, and order processing with secure JWT authentication.',
+    stack: ['FastAPI', 'PostgreSQL', 'Docker', 'JWT', 'Python'],
   },
+
+  {
+    title: 'Capacity Management Simulator',
+    tag: 'Simulation · Operations Research',
+    desc: 'Developed a capacity planning and resource allocation simulator to analyze workload distribution, utilization rates, bottlenecks, and operational efficiency. Implemented scenario-based simulations and performance metrics visualization for decision-making.',
+    stack: ['Python', 'Simulation', 'Data Analysis', 'Optimization'],
+  },
+
+  {
+    title: 'Smart Attendance & College Management System',
+    tag: 'Full Stack · Web Application',
+    desc: 'Developed a QR-based attendance tracking and college management platform with role-based authentication, attendance reporting, and automated record management.',
+    stack: ['React.js', 'Flask', 'MySQL', 'Python'],
+  }
 ];
 
 /* ─── Skills data ────────────────────────────────────────────── */
