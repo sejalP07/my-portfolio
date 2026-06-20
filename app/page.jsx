@@ -421,10 +421,16 @@ export default function HomePage() {
                 detail: 'Competitive programming achievement',
               },
               {
-                icon: '🤖',
-                title: 'Generative AI',
-                sub: 'Google Cloud',
-                detail: 'Certified',
+              icon: '☁️',
+                title: 'Microsoft Azure Fundamentals',
+                 sub: 'Microsoft',
+                detail: 'AZ-900 (Pursuing)',
+              },
+            {
+              icon: '🤖',
+              title: 'Introduction to Generative AI',
+              sub: 'Google Cloud',
+              detail: 'Certified',
               },
               {
                 icon: '📜',
