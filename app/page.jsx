@@ -248,7 +248,7 @@ export default function HomePage() {
             </div>
             <div>
               <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(1.1rem, 1.7vw, 1.25rem)', fontStyle: 'italic', color: 'rgba(255,255,255,0.6)', lineHeight: 1.75, marginBottom: '1.5rem' }}>
-                MCA student at RV Institute of Technology and Management, Bangalore (CGPA 8.58), with hands-on experience building full-stack applications, AI-powered systems, and responsive web interfaces.
+              MCA graduate passionate about Software Engineering, Backend Development, Cloud Computing, and AI-powered applications. Experienced in building scalable systems using Python, FastAPI, PostgreSQL, Docker, and modern web technologies.
               </p>
               <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(1rem, 1.5vw, 1.1rem)', color: 'rgba(255,255,255,0.4)', lineHeight: 1.7 }}>
                 Passionate about problem-solving, enterprise application development, and emerging technologies in cloud and AI. Currently pursuing MCA 2024–2026.
