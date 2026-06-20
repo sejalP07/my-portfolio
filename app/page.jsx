@@ -163,12 +163,48 @@ const projects = [
 
 /* ─── Skills data ────────────────────────────────────────────── */
 const skillGroups = [
-  { label: 'Languages',    items: ['Java', 'Python', 'C', 'JavaScript', 'PHP'] },
-  { label: 'Web / Frontend', items: ['React JS', 'Node JS', 'Flask', 'HTML', 'CSS', 'Bootstrap'] },
-  { label: 'AI / ML',     items: ['TensorFlow', 'Scikit-learn', 'SciPy'] },
-  { label: 'Databases',   items: ['MySQL', 'MongoDB'] },
-  { label: 'Tools',       items: ['GitHub', 'Docker', 'VS Code', 'Power BI', 'Tableau', 'Jupyter'] },
-  { label: 'Concepts',    items: ['OOP', 'Data Structures', 'SDLC', 'REST APIs', 'DBMS', 'OS'] },
+  {
+    label: 'Languages',
+    items: ['Java', 'Python', 'SQL', 'JavaScript']
+  },
+
+  {
+    label: 'Backend',
+    items: ['FastAPI', 'Flask', 'REST APIs', 'JWT Authentication']
+  },
+
+  {
+    label: 'Frontend',
+    items: ['React.js', 'Next.js', 'HTML', 'CSS', 'Bootstrap']
+  },
+
+  {
+    label: 'Databases',
+    items: ['PostgreSQL', 'MySQL', 'MongoDB']
+  },
+
+  {
+    label: 'Cloud & DevOps',
+    items: ['Docker', 'Git', 'GitHub', 'Linux', 'GCP']
+  },
+
+  {
+    label: 'AI & Data',
+    items: ['TensorFlow', 'Scikit-learn', 'Apache Spark', 'Hadoop']
+  },
+
+  {
+    label: 'Core CS',
+    items: [
+      'Data Structures',
+      'Algorithms',
+      'OOP',
+      'DBMS',
+      'Operating Systems',
+      'Computer Networks',
+      'System Design'
+    ]
+  }
 ];
 
 /* ─── Page ───────────────────────────────────────────────────── */
