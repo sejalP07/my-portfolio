@@ -64,13 +64,26 @@ export default function VideoIntro({ videoSrc = '/hero-video.mp4' }) {
     else          { v.pause(); bg?.pause(); setPlaying(false); }
   }, []);
 
-  const toggleMute = useCallback(() => {
-    const v = videoRef.current;
-    if (!v) return;
-    v.muted = !v.muted;
-    setMuted(v.muted);
-    if (!v.muted) setShowHint(false);
-  }, []);
+const toggleMute = useCallback(() => {
+  const v = videoRef.current;
+  const bg = bgVideoRef.current;
+
+  if (!v) return;
+
+  const newMuted = !v.muted;
+
+  v.muted = newMuted;
+
+  if (bg) {
+    bg.muted = newMuted;
+  }
+
+  setMuted(newMuted);
+
+  if (!newMuted) {
+    setShowHint(false);
+  }
+}, []);
 
   const scrollDown = useCallback(() => {
     const next = heroRef.current?.nextElementSibling;
@@ -165,7 +178,7 @@ export default function VideoIntro({ videoSrc = '/hero-video.mp4' }) {
               </button>
 
               <a data-anim="ctrl" className={`${styles.glassBtn} ${styles.glassBtnAccent}`}
-                href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+                href="https://www.linkedin.com/in/sejalp007" target="_blank" rel="noopener noreferrer">
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
                   <rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
