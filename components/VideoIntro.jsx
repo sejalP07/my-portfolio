@@ -137,7 +137,7 @@ const toggleMute = useCallback(() => {
 
             {/* Skill badges */}
             <div className={styles.badgeRow}>
-              {['React', 'Node.js', 'Python', 'Flask', 'TensorFlow', 'MySQL'].map((s) => (
+              {['Python', 'FastAPI', 'PostgreSQL', 'Docker', 'React', 'AI'].map((s) => (
                 <span key={s} data-anim="badge" className={styles.badge}>{s}</span>
               ))}
             </div>
