@@ -258,6 +258,7 @@ export default function HomePage() {
                   { label: 'CGPA', value: '8.58' },
                   { label: 'Grad Year', value: '2026' },
                   { label: 'Projects', value: '5+' },
+                  { label: 'DSA Solved', value: '100+' },
                 ].map(s => (
                   <div key={s.label} style={{
                     textAlign: 'center',
